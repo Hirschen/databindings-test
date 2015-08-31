@@ -1,0 +1,26 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <!-- colorPrimary is used for the default action bar background -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+
+        <!-- colorPrimaryDark is used for the status bar -->
+        <item name="colorPrimaryDark">@color/green_blue</item>
+
+        <!-- colorAccent is used as the default value for colorControlActivated,
+             which is used to tint widgets -->
+        <item name="colorAccent">@color/bontouch_blue</item>
+        <item name="colorControlHighlight">@color/bontouch_blue</item>
+
+        <!-- You can also set colorControlNormal, colorControlActivated
+             colorControlHighlight, and colorSwitchThumbNormal. -->
+        <!--<item name="actionBarTheme">@style/MyApp.ActionBarTheme</item>-->
+    </style>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="bontouch_blue">#22A2EB</color>
+    <color name="green_blue">#1572BE</color>
+</resources>
