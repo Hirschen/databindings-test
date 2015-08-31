@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.bontouch.databindings.databinding.NewDeadToMeItemBinding;
@@ -24,8 +23,7 @@ public class DataBindingsActivity extends AppCompatActivity {
 	public class DataBindingsAdapter extends RecyclerView.Adapter<DeadToMeViewHolder>{
 		@Override
 		public DeadToMeViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-			final LayoutInflater li = LayoutInflater.from(parent.getContext());
-			return new DeadToMeViewHolder(NewDeadToMeItemBinding.inflate(li));
+			return new DeadToMeViewHolder(NewDeadToMeItemBinding.inflate(getLayoutInflater(), parent, false));
 		}
 
 		@Override

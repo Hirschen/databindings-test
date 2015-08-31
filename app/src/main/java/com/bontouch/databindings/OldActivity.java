@@ -1,10 +1,10 @@
 package com.bontouch.databindings;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -27,16 +27,23 @@ public class OldActivity extends AppCompatActivity {
 
 		@Override
 		public DeadToMeViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-			final LayoutInflater li = LayoutInflater.from(parent.getContext());
-			return new DeadToMeViewHolder(li.inflate(R.layout.dead_to_me_item, parent, false));
+			return new DeadToMeViewHolder(getLayoutInflater().inflate(R.layout.dead_to_me_item, parent, false));
 		}
 
 		@Override
 		public void onBindViewHolder(final DeadToMeViewHolder holder, final int position) {
+			final Resources c = holder.itemView.getContext().getResources();
 			final DeadToMe deadToMe = DeadToMeList.getList().get(position);
-			final String name = deadToMe.name.get();
-			holder.name.setText(name);
+			holder.name.setText(deadToMe.name.get());
 			ImageLoader.getInstance().displayImage(deadToMe.imgUrl.get(), holder.img);
+			holder.itemView.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(final View v) {
+					deadToMe.strikeThrough.set(!deadToMe.strikeThrough.get());
+					notifyItemChanged(position); // Must do this!
+				}
+			});
+			holder.name.setTextColor(deadToMe.strikeThrough.get() ? c.getColor(R.color.red) : c.getColor(R.color.black));
 		}
 
 		@Override

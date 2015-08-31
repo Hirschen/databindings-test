@@ -1,6 +1,7 @@
 package com.bontouch.databindings;
 
 import android.databinding.ObservableField;
+import android.view.View;
 
 /**
  * Created by Christoffer Hirsimaa on 31/08/15.
@@ -18,7 +19,7 @@ public class DeadToMe {
 		this.imgUrl.set(imgUrl);
 	}
 
-	public void setStrikeThrough(boolean strikeThrough){
-		this.strikeThrough.set(strikeThrough);
+	public void onClick(View v){
+		strikeThrough.set(!strikeThrough.get());
 	}
 }
