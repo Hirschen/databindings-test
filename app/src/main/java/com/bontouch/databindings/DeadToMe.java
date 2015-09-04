@@ -12,7 +12,7 @@ public class DeadToMe {
 
 	public ObservableField<String> imgUrl = new ObservableField<>("");
 
-	public ObservableField<Boolean> strikeThrough = new ObservableField<>(Boolean.FALSE);
+	public ObservableField<Boolean> marked = new ObservableField<>(Boolean.FALSE);
 
 	public DeadToMe(String name, String imgUrl){
 		this.name.set(name);
@@ -20,6 +20,6 @@ public class DeadToMe {
 	}
 
 	public void onClick(View v){
-		strikeThrough.set(!strikeThrough.get());
+		marked.set(!marked.get());
 	}
 }

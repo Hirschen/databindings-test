@@ -20,30 +20,22 @@ public class DataBindingsActivity extends AppCompatActivity {
 		rv.setLayoutManager(new LinearLayoutManager(this));
 	}
 
-	public class DataBindingsAdapter extends RecyclerView.Adapter<DeadToMeViewHolder>{
+	public class DataBindingsAdapter extends RecyclerView.Adapter<GenericViewHolder<NewDeadToMeItemBinding>>{
 		@Override
-		public DeadToMeViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-			return new DeadToMeViewHolder(NewDeadToMeItemBinding.inflate(getLayoutInflater(), parent, false));
+		public GenericViewHolder<NewDeadToMeItemBinding> onCreateViewHolder(final ViewGroup parent, final int viewType) {
+			final NewDeadToMeItemBinding binder = NewDeadToMeItemBinding.inflate(getLayoutInflater(), parent, false);
+			return new GenericViewHolder<>(binder);
 		}
 
 		@Override
-		public void onBindViewHolder(final DeadToMeViewHolder holder, final int position) {
+		public void onBindViewHolder(final GenericViewHolder<NewDeadToMeItemBinding> holder, final int position) {
 			final DeadToMe deadToMe = DeadToMeList.getList().get(position);
-			holder.itemBinder.setDead(deadToMe);
+			holder.getBinder().setDead(deadToMe);
 		}
 
 		@Override
 		public int getItemCount() {
 			return DeadToMeList.getList().size();
-		}
-	}
-
-	public class DeadToMeViewHolder extends RecyclerView.ViewHolder{
-		public NewDeadToMeItemBinding itemBinder;
-
-		public DeadToMeViewHolder(final NewDeadToMeItemBinding itemBinder) {
-			super(itemBinder.getRoot());
-			this.itemBinder = itemBinder;
 		}
 	}
 }

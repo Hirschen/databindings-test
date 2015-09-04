@@ -26,7 +26,7 @@
             android:layout_marginRight="16dp"
             android:textSize="18sp"
             android:layout_gravity="center_vertical"
-            android:textColor="@{dead.strikeThrough ? @color/red : @color/black}"
+            android:textColor="@{dead.marked ? @color/red : @color/black}"
             android:text="@{dead.name}"
             tools:text="Not pre sliced bread"
             android:layout_height="wrap_content"/>

@@ -39,11 +39,11 @@ public class OldActivity extends AppCompatActivity {
 			holder.itemView.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(final View v) {
-					deadToMe.strikeThrough.set(!deadToMe.strikeThrough.get());
-					notifyItemChanged(position); // Must do this!
+					deadToMe.marked.set(!deadToMe.marked.get());
+					holder.name.setTextColor(deadToMe.marked.get() ? c.getColor(R.color.red) : c.getColor(R.color.black));
 				}
 			});
-			holder.name.setTextColor(deadToMe.strikeThrough.get() ? c.getColor(R.color.red) : c.getColor(R.color.black));
+			holder.name.setTextColor(deadToMe.marked.get() ? c.getColor(R.color.red) : c.getColor(R.color.black));
 		}
 
 		@Override
